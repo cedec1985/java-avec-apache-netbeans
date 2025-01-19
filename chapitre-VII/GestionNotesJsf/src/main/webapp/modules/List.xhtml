@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListModulesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListModulesEmpty}" rendered="#{modulesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{modulesController.items.rowCount > 0}">
+                    <h:outputText value="#{modulesController.pagination.pageFirstItem + 1}..#{modulesController.pagination.pageLastItem + 1}/#{modulesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{modulesController.previous}" value="#{bundle.Previous} #{modulesController.pagination.pageSize}" rendered="#{modulesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{modulesController.next}" value="#{bundle.Next} #{modulesController.pagination.pageSize}" rendered="#{modulesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{modulesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListModulesTitle_idModule}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idModule}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListModulesTitle_matiere}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.matiere}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListModulesTitle_coefficient}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.coefficient}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{modulesController.prepareView}" value="#{bundle.ListModulesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{modulesController.prepareEdit}" value="#{bundle.ListModulesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{modulesController.destroy}" value="#{bundle.ListModulesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{modulesController.prepareCreate}" value="#{bundle.ListModulesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListModulesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

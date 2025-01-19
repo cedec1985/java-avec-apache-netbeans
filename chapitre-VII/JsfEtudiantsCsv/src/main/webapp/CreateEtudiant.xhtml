@@ -1,0 +1,24 @@
+    <?xml version='1.0' encoding='UTF-8' ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://xmlns.jcp.org/jsf/html"
+          xmlns:f="http://xmlns.jcp.org/jsf/core">
+        <h:head>
+            <title>Gestion des étudiants</title>
+        </h:head>
+        <h:body>
+            <h2>Ajout d'un étudiant</h2>
+            <f:view>
+                <h:form>
+                    <h:panelGrid columns="2"> 
+                     <h:outputText value="Nom" /> <h:inputText id="nom" value="#{etuPresenter.newEtudiant.nom}" />
+                     <h:outputText value="Prénom" /> <h:inputText id="prenom" value="#{etuPresenter.newEtudiant.prenom}" />
+                     <h:outputText value="Date de naissance" /> <h:inputText id="dateNaissance" value="#{etuPresenter.newEtudiant.dateNaissance}" />
+                     <h:outputText value="Adresse mail" /> <h:inputText id="email" value="#{etuPresenter.newEtudiant.email}" />
+                    </h:panelGrid>
+                   <br />
+                   <h:commandButton value="Insérer" type="submit" action="#{etuPresenter.insertEtudiant()}" />   
+                </h:form>
+            </f:view>      
+        </h:body>
+    </html>

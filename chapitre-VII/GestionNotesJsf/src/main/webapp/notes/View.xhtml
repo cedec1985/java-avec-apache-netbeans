@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewNotesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewNotesLabel_idNote}"/>
+                    <h:outputText value="#{notesController.selected.idNote}" title="#{bundle.ViewNotesTitle_idNote}"/>
+                    <h:outputText value="#{bundle.ViewNotesLabel_note}"/>
+                    <h:outputText value="#{notesController.selected.note}" title="#{bundle.ViewNotesTitle_note}"/>
+                    <h:outputText value="#{bundle.ViewNotesLabel_idEtudiant}"/>
+                    <h:outputText value="#{notesController.selected.idEtudiant}" title="#{bundle.ViewNotesTitle_idEtudiant}"/>
+                    <h:outputText value="#{bundle.ViewNotesLabel_idModule}"/>
+                    <h:outputText value="#{notesController.selected.idModule}" title="#{bundle.ViewNotesTitle_idModule}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{notesController.destroyAndView}" value="#{bundle.ViewNotesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewNotesEditLink}"/>
+                <br />
+                <h:commandLink action="#{notesController.prepareCreate}" value="#{bundle.ViewNotesCreateLink}" />
+                <br />
+                <h:commandLink action="#{notesController.prepareList}" value="#{bundle.ViewNotesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewNotesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

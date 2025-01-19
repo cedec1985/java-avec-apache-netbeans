@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNotesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditNotesLabel_idNote}" for="idNote" />
+                    <h:inputText id="idNote" value="#{notesController.selected.idNote}" title="#{bundle.EditNotesTitle_idNote}" required="true" requiredMessage="#{bundle.EditNotesRequiredMessage_idNote}"/>
+                    <h:outputLabel value="#{bundle.EditNotesLabel_note}" for="note" />
+                    <h:inputText id="note" value="#{notesController.selected.note}" title="#{bundle.EditNotesTitle_note}" />
+                    <h:outputLabel value="#{bundle.EditNotesLabel_idEtudiant}" for="idEtudiant" />
+                    <h:selectOneMenu id="idEtudiant" value="#{notesController.selected.idEtudiant}" title="#{bundle.EditNotesTitle_idEtudiant}" required="true" requiredMessage="#{bundle.EditNotesRequiredMessage_idEtudiant}">
+                        <f:selectItems value="#{etudiantsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditNotesLabel_idModule}" for="idModule" />
+                    <h:selectOneMenu id="idModule" value="#{notesController.selected.idModule}" title="#{bundle.EditNotesTitle_idModule}" required="true" requiredMessage="#{bundle.EditNotesRequiredMessage_idModule}">
+                        <f:selectItems value="#{modulesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{notesController.update}" value="#{bundle.EditNotesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditNotesViewLink}"/>
+                <br />
+                <h:commandLink action="#{notesController.prepareList}" value="#{bundle.EditNotesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditNotesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

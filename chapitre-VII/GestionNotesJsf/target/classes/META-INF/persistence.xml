@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="fr.eni_GestionNotesJsf_war_1.0.0-SNAPSHOTPU" transaction-type="JTA">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>fr.eni.gestionnotesjsf.entities.Modules</class>
+    <class>fr.eni.gestionnotesjsf.entities.Etudiants</class>
+    <class>fr.eni.gestionnotesjsf.entities.Notes</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+  </persistence-unit>
+</persistence>
+
+<!--    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:C:\ws_netbeans\DB\gestion_notes"/>
+      <property name="javax.persistence.jdbc.user" value="eni"/>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="eni"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+    </properties>-->
