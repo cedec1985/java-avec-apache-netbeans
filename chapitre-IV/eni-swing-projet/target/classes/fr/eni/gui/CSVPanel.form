@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1">
+  <splitpane id="e6bca" binding="splitPane1" default-binding="true">
+    <constraints>
+      <xy x="75" y="233" width="487" height="262"/>
+    </constraints>
+    <properties>
+      <background color="-13619439"/>
+      <continuousLayout value="false"/>
+      <font name="Georgia"/>
+      <foreground color="-12130857"/>
+    </properties>
+    <border type="bevel-lowered" title="sPane" title-justification="2" title-position="1">
+      <font name="Gill Sans Ultra Bold" size="11" style="0"/>
+      <title-color color="-5642974"/>
+    </border>
+    <children>
+      <component id="d8036" class="javax.swing.JSpinner" binding="sPinner">
+        <constraints>
+          <splitpane position="left"/>
+        </constraints>
+        <properties>
+          <background color="-13628906"/>
+          <editor value=""/>
+          <font style="1"/>
+          <foreground color="-12130857"/>
+          <toolTipText value="Spinner&#10;"/>
+        </properties>
+      </component>
+      <component id="7aa9c" class="javax.swing.JLabel" binding="Label1">
+        <constraints>
+          <splitpane position="right"/>
+        </constraints>
+        <properties>
+          <background color="-20675"/>
+          <font name="Courier New" size="10" style="1"/>
+          <foreground color="-12130857"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <icon value="fr/eni/gui/eni-icon.png"/>
+          <text value="Prénom"/>
+          <verticalAlignment value="1"/>
+        </properties>
+      </component>
+    </children>
+  </splitpane>
+</form>
